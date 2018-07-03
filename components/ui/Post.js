@@ -6,14 +6,15 @@ import moment from "moment";
 const Post = ({ post }) => {
   return (
     <div>
-      <h1 dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
+      <h1 dangerouslySetInnerHTML={{ __html: post.title }} />
       <p>
         <em>
-          by <AuthorList authors={post._embedded.author} /> -{" "}
+          by {post.author.name} - 
           {moment(post.date).format("LLL")}
         </em>
       </p>
-      <div dangerouslySetInnerHTML={{ __html: post.content.rendered }} />
+      <div dangerouslySetInnerHTML={{ __html: post.content }} />
+      {/*
       {post._embedded["wp:term"][0].length > 0 && (
         <div>
           Catégories: <CategoryList terms={post._embedded["wp:term"][0]} />
@@ -24,6 +25,7 @@ const Post = ({ post }) => {
           Tags: <TagList tags={post._embedded["wp:term"][1]} />
         </div>
       )}
+      */}
     </div>
   );
 };

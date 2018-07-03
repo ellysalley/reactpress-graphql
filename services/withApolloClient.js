@@ -19,6 +19,7 @@ export default App => {
       // and extract the resulting data
       const apollo = initApollo();
       try {
+        console.log(ctx);
         // Run all GraphQL queries
         await getDataFromTree(
           <App
