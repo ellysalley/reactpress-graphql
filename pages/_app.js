@@ -10,6 +10,8 @@ import "../css/typography.css";
 import "../css/globals.css";
 import "../css/nprogress.css";
 import React from "react";
+import withApolloClient from "../services/withApolloClient";
+import { ApolloProvider } from "react-apollo";
 
 // display a loader a the top of our page
 Router.onRouteChangeStart = url => {
@@ -18,19 +20,9 @@ Router.onRouteChangeStart = url => {
 Router.onRouteChangeComplete = () => NProgress.done();
 Router.onRouteChangeError = () => NProgress.done();
 
-export default class ReactpressApp extends App {
-  static async getInitialProps({ Component, router, ctx }) {
-    let pageProps = {};
-
-    if (Component.getInitialProps) {
-      pageProps = await Component.getInitialProps(ctx);
-    }
-
-    return { pageProps };
-  }
-
+class ReactpressApp extends App {
   render() {
-    const { Component, pageProps } = this.props;
+    const { Component, pageProps, apolloClient } = this.props;
     return (
       <Container>
         <Head>
@@ -40,8 +32,12 @@ export default class ReactpressApp extends App {
           />
           <title>REACTPRESS DEMO</title>
         </Head>
-        <Component {...pageProps} />
+        <ApolloProvider client={apolloClient}>
+          <Component {...pageProps} />
+        </ApolloProvider>
       </Container>
     );
   }
 }
+
+export default withApolloClient(ReactpressApp);

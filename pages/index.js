@@ -2,15 +2,26 @@ import Layout from "../components/layouts/Layout";
 import PostList from "../components/ui/PostList";
 import { withRouter } from "next/router";
 import wpapi from "../services/wpapi";
+import { graphql, compose } from "react-apollo";
+import gql from "graphql-tag";
 
-class PostListPage extends React.Component {
-  static async getInitialProps({ req }) {
-    const posts = await wpapi.posts().embed();
-    return { posts };
-  }
-  render() {
-    return <Layout>{<PostList posts={this.props.posts} />}</Layout>;
-  }
-}
+const PostListPage = ({ data: { posts } }) => {
+  return <Layout>{<PostList posts={posts} />}</Layout>;
+};
 
-export default withRouter(PostListPage);
+const query = gql`
+  query posts {
+    posts {
+      edges {
+        node {
+          id
+          excerpt(format: RENDERED)
+          title
+          slug
+        }
+      }
+    }
+  }
+`;
+
+export default compose(graphql(query))(PostListPage);

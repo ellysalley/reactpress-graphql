@@ -6,8 +6,8 @@ const PostListItem = ({ post }) => (
       {/* hack to hide default more-link button from wordpress*/}
       {".more-link{display:none}"}
     </style>
-    <h2 dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
-    <div dangerouslySetInnerHTML={{ __html: post.excerpt.rendered }} />
+    <h2 dangerouslySetInnerHTML={{ __html: post.title }} />
+    <div dangerouslySetInnerHTML={{ __html: post.excerpt }} />
     <LinkButton href={`/post?slug=${post.slug}`} as={"/post/" + post.slug}>
       Read more
     </LinkButton>

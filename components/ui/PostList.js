@@ -1,7 +1,13 @@
 import PostListItem from "./PostListItem";
 
-const PostList = ({ posts }) => (
-  <div>{posts.map(post => <PostListItem key={post.id} post={post} />)}</div>
-);
+const PostList = ({ posts }) => {
+  return (
+    <div>
+      {posts.edges.map(post => (
+        <PostListItem key={post.node.id} post={post.node} />
+      ))}
+    </div>
+  );
+};
 
 export default PostList;
