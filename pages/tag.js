@@ -1,25 +1,61 @@
 import { withRouter } from "next/router";
 import PostList from "../components/ui/PostList";
-import wpapi from "../lib/wpapi";
+import { compose } from "recompose";
+import gql from "graphql-tag";
+import Loader from "../components/ui/Loader";
+import { graphql } from "react-apollo";
+import { withNextApollo } from "../lib/apollo";
 
 class TagPage extends React.Component {
-  static async getInitialProps({ query }) {
-    const tags = await wpapi.tags().slug(query.slug);
-    const tag = tags[0];
-    const posts = await wpapi
-      .posts()
-      .tags(tag.id)
-      .embed();
-    return { tag, posts };
-  }
   render() {
+    const { data } = this.props;
+    if (data.loading) return <Loader />;
+    console.log(data);
     return (
       <div>
-        <h1>{this.props.tag.name}</h1>
-        {<PostList posts={this.props.posts} />}
+        <h1>{data.tags.edges[0].node.name}</h1>
+        {<PostList posts={data.posts} />}
       </div>
     );
   }
 }
 
-export default withRouter(TagPage);
+const query = gql`
+  query postsByTagSlug($tag: String!) {
+    tags(where: { slug: "platon" }) {
+      edges {
+        node {
+          name
+          description
+        }
+      }
+    }
+    posts(where: { tag: $tag }) {
+      edges {
+        node {
+          id
+          postId
+          title
+          content
+          slug
+        }
+      }
+    }
+  }
+`;
+
+const queryOptions = {
+  options: props => {
+    return {
+      variables: {
+        tag: props.router.query.slug
+      }
+    };
+  }
+};
+
+export default compose(
+  withNextApollo,
+  withRouter,
+  graphql(query, queryOptions)
+)(TagPage);

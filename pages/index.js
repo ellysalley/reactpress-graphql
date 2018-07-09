@@ -15,6 +15,7 @@ const query = gql`
     posts {
       edges {
         node {
+          postId
           id
           content
           title
