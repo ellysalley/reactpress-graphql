@@ -3,15 +3,14 @@
  * You can override it and control the page initialization.
  */
 import App, { Container } from "next/app";
-import Head from "next/head";
 import Router from "next/router";
+import React from "react";
+import withApolloClient from "../services/withApolloClient";
+import { ApolloProvider } from "react-apollo";
 import NProgress from "nprogress";
 import "../css/typography.css";
 import "../css/globals.css";
 import "../css/nprogress.css";
-import React from "react";
-import withApolloClient from "../services/withApolloClient";
-import { ApolloProvider } from "react-apollo";
 
 // display a loader a the top of our page
 Router.onRouteChangeStart = url => {
@@ -20,18 +19,11 @@ Router.onRouteChangeStart = url => {
 Router.onRouteChangeComplete = () => NProgress.done();
 Router.onRouteChangeError = () => NProgress.done();
 
-class ReactpressApp extends App {
+class MyApp extends App {
   render() {
     const { Component, pageProps, apolloClient } = this.props;
     return (
       <Container>
-        <Head>
-          <meta
-            name="viewport"
-            content="initial-scale=1.0, width=device-width"
-          />
-          <title>REACTPRESS DEMO</title>
-        </Head>
         <ApolloProvider client={apolloClient}>
           <Component {...pageProps} />
         </ApolloProvider>
@@ -40,4 +32,4 @@ class ReactpressApp extends App {
   }
 }
 
-export default withApolloClient(ReactpressApp);
+export default withApolloClient(MyApp);

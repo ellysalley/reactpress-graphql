@@ -1,5 +1,5 @@
 module.exports = {
-  wordpressGraphqlEndpoint: "http://dev-reactpress.pantheonsite.io/graphql",
+  wordpressGraphqlEndpoint: "https://dev-reactpress.pantheonsite.io/graphql",
   // used by ./services/wpapi to create api url
   wordpressUrl: "https://dev-reactpress.pantheonsite.io",
   siteInformations: {

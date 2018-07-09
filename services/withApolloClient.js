@@ -18,8 +18,8 @@ export default App => {
       // Run all GraphQL queries in the component tree
       // and extract the resulting data
       const apollo = initApollo();
+      // Provide the `url` prop data in case a GraphQL query uses it
       try {
-        console.log(ctx);
         // Run all GraphQL queries
         await getDataFromTree(
           <App

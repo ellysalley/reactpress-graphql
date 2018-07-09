@@ -2,7 +2,7 @@ import { ApolloClient } from "apollo-boost";
 import { HttpLink } from "apollo-boost";
 import { InMemoryCache } from "apollo-boost";
 import fetch from "isomorphic-unfetch";
-import config from "./publicConfig";
+import config from "../services/publicConfig";
 
 let apolloClient = null;
 
