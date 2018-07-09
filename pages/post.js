@@ -2,12 +2,12 @@ import { withRouter } from "next/router";
 import Post from "../components/ui/Post";
 import Loader from "../components/ui/Loader";
 import { graphql, compose } from "react-apollo";
-import withData from "../lib/apollo";
+import { withNextApollo } from "../lib/apollo";
 import gql from "graphql-tag";
 
 const postPage = ({ data }) => {
   if (data.loading) return <Loader />;
-  return <Post post={data.post} />
+  return <Post post={data.post} />;
 };
 
 const query = gql`
@@ -35,7 +35,7 @@ const queryOptions = {
 };
 
 export default compose(
-  withData,
+  withNextApollo,
   withRouter,
   graphql(query, queryOptions)
 )(postPage);
