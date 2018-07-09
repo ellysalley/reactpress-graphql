@@ -10,7 +10,6 @@ class TagPage extends React.Component {
   render() {
     const { data } = this.props;
     if (data.loading) return <Loader />;
-    console.log(data);
     return (
       <div>
         <h1>{data.tags.edges[0].node.name}</h1>
@@ -21,16 +20,15 @@ class TagPage extends React.Component {
 }
 
 const query = gql`
-  query postsByTagSlug($tag: String!) {
-    tags(where: { slug: "platon" }) {
+  query postsByTagSlug($slug: String!) {
+    tags(where: { slug: [$slug] }) {
       edges {
         node {
           name
-          description
         }
       }
     }
-    posts(where: { tag: $tag }) {
+    posts(where: { tag: $slug }) {
       edges {
         node {
           id
@@ -48,7 +46,7 @@ const queryOptions = {
   options: props => {
     return {
       variables: {
-        tag: props.router.query.slug
+        slug: props.router.query.slug
       }
     };
   }
