@@ -1,12 +1,13 @@
 import Layout from "../components/layouts/Layout";
 import PostList from "../components/ui/PostList";
-import { withRouter } from "next/router";
-import wpapi from "../services/wpapi";
-import { graphql, compose } from "react-apollo";
+import { graphql } from "react-apollo";
 import gql from "graphql-tag";
+import withData from "../services/apollo";
+import { compose } from "recompose";
 
-const PostListPage = ({ data: { posts } }) => {
-  return <Layout>{<PostList posts={posts} />}</Layout>;
+const PostListPage = ({ data }) => {
+  if (data.loading) return <div>Chargement</div>;
+  return <Layout>{<PostList posts={data.posts} />}</Layout>;
 };
 
 const query = gql`
@@ -24,4 +25,7 @@ const query = gql`
   }
 `;
 
-export default compose(graphql(query))(PostListPage);
+export default compose(
+  withData,
+  graphql(query)
+)(PostListPage);

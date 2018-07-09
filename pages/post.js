@@ -2,9 +2,11 @@ import { withRouter } from "next/router";
 import DefaultLayout from "../components/layouts/Layout";
 import Post from "../components/ui/Post";
 import { graphql, compose } from "react-apollo";
+import withData from "../services/apollo";
 import gql from "graphql-tag";
 
 const postPage = ({ data }) => {
+  if (data.loading) return <div>Chargement</div>;
   return <DefaultLayout>{<Post post={data.post} />}</DefaultLayout>;
 };
 
@@ -33,6 +35,7 @@ const queryOptions = {
 };
 
 export default compose(
+  withData,
   withRouter,
   graphql(query, queryOptions)
 )(postPage);
