@@ -1,11 +1,12 @@
-# WORDPRESS + REACT = REACTPRESS 💛
+# WORDPRESS + REACT = REACTPRESS 💛 - ( GrapqhQL version )
 
-Start a SEO-friendly Decoupled Wordpress with React in minutes.
+Start a SEO-friendly headless Wordpress with React in minutes.
 
 ## Gettings started
 
 ### make sur CORS is enabled on Wordpress
 
+Enable https://github.com/wp-graphql/wp-graphql extension.
 add this to your wp-config.php to make sure CORS are enabled :
 
 ```php
@@ -24,11 +25,11 @@ npm run dev
 You're ready to go ! You can now start working by looking / hacking / editing **pages** and **components** and **css** directories ! <br /><br />
 
 By default, reactpress uses a demo API, so code is working out of the box.<br /> To connect your own API, edit **reactpress.config.js** file and edit variable
-**wordpressUrl** so that is points to your wordpress site with **REST API V2** and CORS enabled :
+**wordpressGraphqlEndpoint** so that is points to your wordpress site with **wp-graphql module** and CORS enabled :
 
 ```js
 export default {
-  wordpressUrl: "https://dev-reactpress.pantheonsite.io"
+  wordpressGraphqlEndpoint: "https://dev-reactpress.pantheonsite.io/graphql"
 };
 ```
 
