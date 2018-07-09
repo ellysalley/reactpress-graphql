@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import config from "../../lib/publicConfig";
 import "./Navigation.css";
 
-let Navigation = class extends React.Component {
+let Navigation = class extends React.PureComponent {
   state = {
     mobileMenuOpened: false
   };

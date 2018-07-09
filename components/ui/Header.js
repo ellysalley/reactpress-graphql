@@ -1,6 +1,18 @@
-const Header = ({ children }) => (
-  <header style={styles.header}>{children}</header>
-);
+import React from "react";
+
+const Header = class extends React.PureComponent {
+  shouldComponentUpdate(nextProps, nextState) {
+    return false;
+  }
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    const { children } = this.props;
+    return <header style={styles.header}>{children}</header>;
+  }
+};
 
 const styles = {
   header: {
