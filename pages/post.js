@@ -2,7 +2,7 @@ import { withRouter } from "next/router";
 import DefaultLayout from "../components/layouts/Layout";
 import Post from "../components/ui/Post";
 import { graphql, compose } from "react-apollo";
-import withData from "../services/apollo";
+import withData from "../lib/apollo";
 import gql from "graphql-tag";
 
 const postPage = ({ data }) => {

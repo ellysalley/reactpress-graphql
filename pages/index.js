@@ -2,7 +2,7 @@ import Layout from "../components/layouts/Layout";
 import PostList from "../components/ui/PostList";
 import { graphql } from "react-apollo";
 import gql from "graphql-tag";
-import withData from "../services/apollo";
+import withData from "../lib/apollo";
 import { compose } from "recompose";
 
 const PostListPage = ({ data }) => {
