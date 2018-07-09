@@ -16,7 +16,7 @@ const query = gql`
       edges {
         node {
           id
-          excerpt(format: RENDERED)
+          content
           title
           slug
         }

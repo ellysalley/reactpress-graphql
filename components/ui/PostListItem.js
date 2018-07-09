@@ -1,4 +1,6 @@
+import React from "react";
 import LinkButton from "../ui/LinkButton";
+import striptags from "striptags";
 
 const PostListItem = ({ post }) => (
   <div style={{ marginBottom: "2rem" }}>
@@ -7,10 +9,12 @@ const PostListItem = ({ post }) => (
       {".more-link{display:none}"}
     </style>
     <h2 dangerouslySetInnerHTML={{ __html: post.title }} />
-    <div dangerouslySetInnerHTML={{ __html: post.excerpt }} />
-    <LinkButton href={`/post?slug=${post.slug}`} as={"/post/" + post.slug}>
-      Read more
-    </LinkButton>
+    <div>{striptags(post.content).substr(0, 300)} ...</div>
+    <p>
+      <LinkButton href={`/post?slug=${post.slug}`} as={"/post/" + post.slug}>
+        Read more
+      </LinkButton>
+    </p>
   </div>
 );
 
