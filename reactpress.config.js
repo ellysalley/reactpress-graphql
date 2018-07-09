@@ -16,7 +16,7 @@ module.exports = {
     },
     {
       title: "Github",
-      href: "https://github.com/nyl-auster/reactpress",
+      href: "https://github.com/nyl-auster/reactpress-graphql",
       as: ""
     }
   ],
