@@ -1,5 +1,4 @@
 import { withRouter } from "next/router";
-import DefaultLayout from "../components/layouts/Layout";
 import PostList from "../components/ui/PostList";
 import wpapi from "../lib/wpapi";
 
@@ -15,10 +14,10 @@ class TagPage extends React.Component {
   }
   render() {
     return (
-      <DefaultLayout>
+      <div>
         <h1>{this.props.tag.name}</h1>
         {<PostList posts={this.props.posts} />}
-      </DefaultLayout>
+      </div>
     );
   }
 }

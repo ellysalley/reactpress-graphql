@@ -6,6 +6,7 @@ import App, { Container } from "next/app";
 import Router from "next/router";
 import React from "react";
 import NProgress from "nprogress";
+import Layout from "../components/layouts/Layout";
 import "../css/typography.css";
 import "../css/globals.css";
 import "../css/nprogress.css";
@@ -21,9 +22,9 @@ class ReactpressApp extends App {
   render() {
     const { Component, pageProps, apolloClient } = this.props;
     return (
-      <Container>
+      <Layout>
         <Component {...pageProps} />
-      </Container>
+      </Layout>
     );
   }
 }

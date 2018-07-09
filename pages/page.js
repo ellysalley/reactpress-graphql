@@ -1,5 +1,4 @@
 import { withRouter } from "next/router";
-import DefaultLayout from "../components/layouts/Layout";
 import Page from "../components/ui/Page";
 import wpapi from "../lib/wpapi";
 
@@ -13,7 +12,7 @@ class PagePage extends React.Component {
   }
 
   render() {
-    return <DefaultLayout>{<Page page={this.props.page} />}</DefaultLayout>;
+    return <div>{<Page page={this.props.page} />}</div>;
   }
 }
 
