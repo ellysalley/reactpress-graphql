@@ -1,3 +1,4 @@
+import Reacyt from "react";
 import { withRouter } from "next/router";
 import Post from "../components/ui/Post";
 import Loader from "../components/ui/Loader";
@@ -19,6 +20,24 @@ const query = gql`
       author {
         name
         id
+      }
+      categories {
+        edges {
+          node {
+            categoryId
+            name
+            slug
+          }
+        }
+      }
+      tags {
+        edges {
+          node {
+            tagId
+            name
+            slug
+          }
+        }
       }
     }
   }

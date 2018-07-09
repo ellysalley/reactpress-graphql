@@ -1,9 +1,11 @@
 import CategoryListItem from "./CategoryListItem";
 
-const TermList = ({ terms }) => (
+const CategoryList = ({ categories }) => (
   <span>
-    {terms.map(term => <CategoryListItem key={term.id} term={term} />)}
+    {categories.edges.map(edge => (
+      <CategoryListItem key={edge.node.categoryId} term={edge} />
+    ))}
   </span>
 );
 
-export default TermList;
+export default CategoryList;

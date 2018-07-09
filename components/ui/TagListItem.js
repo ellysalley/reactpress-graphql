@@ -1,8 +1,12 @@
 import Link from "next/link";
 const TagListItem = ({ tag }) => (
   <span style={styles.span}>
-    <Link href={`/tag?slug=${tag.slug}`} as={`/tag/${tag.slug}`} prefetch>
-      <a> {tag.name}</a>
+    <Link
+      href={`/tag?slug=${tag.node.slug}`}
+      as={`/tag/${tag.node.slug}`}
+      prefetch
+    >
+      <a> {tag.node.name}</a>
     </Link>
   </span>
 );

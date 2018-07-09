@@ -2,11 +2,11 @@ import Link from "next/link";
 const CategoryListItem = ({ term }) => (
   <span style={styles.span}>
     <Link
-      href={`/category?slug=${term.slug}`}
-      as={`/category/${term.slug}`}
+      href={`/category?slug=${term.node.slug}`}
+      as={`/category/${term.node.slug}`}
       prefetch
     >
-      <a>{term.name}</a>
+      <a>{term.node.name}</a>
     </Link>
   </span>
 );

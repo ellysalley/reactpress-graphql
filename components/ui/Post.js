@@ -9,23 +9,17 @@ const Post = ({ post }) => {
       <h1 dangerouslySetInnerHTML={{ __html: post.title }} />
       <p>
         <em>
-          by {post.author.name} - 
+          by {post.author.name} -
           {moment(post.date).format("LLL")}
         </em>
       </p>
       <div dangerouslySetInnerHTML={{ __html: post.content }} />
-      {/*
-      {post._embedded["wp:term"][0].length > 0 && (
-        <div>
-          Catégories: <CategoryList terms={post._embedded["wp:term"][0]} />
-        </div>
-      )}
-      {post._embedded["wp:term"][1].length > 0 && (
-        <div>
-          Tags: <TagList tags={post._embedded["wp:term"][1]} />
-        </div>
-      )}
-      */}
+      <div>
+        Catégories: <CategoryList categories={post.categories} />
+      </div>
+      <div>
+        Tags: <TagList tags={post.tags} />
+      </div>
     </div>
   );
 };
