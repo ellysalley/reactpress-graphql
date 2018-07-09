@@ -3,8 +3,8 @@ import moment from "moment";
 
 const Page = ({ page }) => (
   <div>
-    <h1 dangerouslySetInnerHTML={{ __html: page.title.rendered }} />
-    <div dangerouslySetInnerHTML={{ __html: page.content.rendered }} />
+    <h1 dangerouslySetInnerHTML={{ __html: page.title }} />
+    <div dangerouslySetInnerHTML={{ __html: page.content }} />
   </div>
 );
 

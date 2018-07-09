@@ -1,19 +1,37 @@
+import React from "react";
 import { withRouter } from "next/router";
 import Page from "../components/ui/Page";
-import wpapi from "../lib/wpapi";
+import Loader from "../components/ui/Loader";
+import { graphql, compose } from "react-apollo";
+import { withNextApollo } from "../lib/apollo";
+import gql from "graphql-tag";
 
-class PagePage extends React.Component {
-  static async getInitialProps({ query }) {
-    const pages = await wpapi
-      .pages()
-      .slug(query.slug)
-      .embed();
-    return { page: pages[0] };
+const PagePage = ({ data }) => {
+  if (data.loading) return <Loader />;
+  return <div>{<Page page={data.page} />}</div>;
+};
+
+const query = gql`
+  query pageBySlug($slug: String!) {
+    page: pageBy(uri: $slug) {
+      title
+      content
+    }
   }
+`;
 
-  render() {
-    return <div>{<Page page={this.props.page} />}</div>;
+const queryOptions = {
+  options: props => {
+    return {
+      variables: {
+        slug: props.router.query.slug
+      }
+    };
   }
-}
+};
 
-export default withRouter(PagePage);
+export default compose(
+  withNextApollo,
+  withRouter,
+  graphql(query, queryOptions)
+)(PagePage);

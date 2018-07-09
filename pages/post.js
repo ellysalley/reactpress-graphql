@@ -1,4 +1,4 @@
-import Reacyt from "react";
+import React from "react";
 import { withRouter } from "next/router";
 import Post from "../components/ui/Post";
 import Loader from "../components/ui/Loader";

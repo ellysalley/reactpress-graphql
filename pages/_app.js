@@ -2,9 +2,9 @@
  * Next.js uses the App component to initialize all the pages.
  * You can override it and control the page initialization.
  */
+import React from "react";
 import App, { Container } from "next/app";
 import Router from "next/router";
-import React from "react";
 import NProgress from "nprogress";
 import Layout from "../components/layouts/Layout";
 import "../css/typography.css";
