@@ -1,13 +1,20 @@
-# WORDPRESS + REACT = REACTPRESS 💛 - ( GrapqhQL version )
+# WORDPRESS + REACT = REACTPRESS 💛 - GrapqhQL version 🚀
 
-Add a SEO-friendly React front-end to your Wordpress in minutes.
+_Wordpress developpers ?_ Add a SEO-friendly React front-end to your Wordpress in minutes.
+_React developpers ?_ Create a SEO-friendly App with a powerful backoffice for your contributors.
+
+<img width="200" src="https://raw.githubusercontent.com/nyl-auster/reactpress-graphql/master/themes/default/images/hippogriff.png" />
+
+ReactPress is built upon the awesome [Next.js](https://github.com/zeit/next.js/) for Server Side Rendering.
 
 ## Gettings started
 
-### Configure Wordpress
+### Install and configure Wordpress
 
-Enable https://github.com/wp-graphql/wp-graphql extension.
-Add this to your wp-config.php to make sure CORS are enabled :
+React developpers, you can use https://pantheon.io/ to install a Wordpress site and use it as a service. Then :
+
+- Enable wp-graphql extension : https://wpgraphql.com/docs/getting-started/install-and-activate/
+- Add this to your wp-config.php to make sure CORS are enabled :
 
 ```php
 // allow CORS
