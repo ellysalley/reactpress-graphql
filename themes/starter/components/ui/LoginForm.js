@@ -23,7 +23,7 @@ class LoginForm extends React.Component {
 
 export default compose(
   // withLoginServer decorator must be called BEFORE reduxForm
-  // withLoginToWordpress,
+  withLoginToWordpress,
   reduxForm({
     form: "login",
     initialValues: {
