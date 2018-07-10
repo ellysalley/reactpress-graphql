@@ -1,8 +1,7 @@
 import React from "react";
 import { reduxForm, Field } from "redux-form";
 import { compose } from "recompose";
-import withLoginToServer from "./withLoginToServer";
-import ButtonSubmitWithLoader from "../ui/bulma/ButtonSubmitWithLoader";
+// import withLoginToWordpress from "../../../../decorators/withLoginToWordpress";
 
 class LoginForm extends React.Component {
   render() {
@@ -17,13 +16,7 @@ class LoginForm extends React.Component {
           component={Text}
           type="password"
         />
-        <ButtonSubmitWithLoader
-          className="button is-large is-info"
-          type="submit"
-          isLoading={submitting}
-        >
-          Se connecter
-        </ButtonSubmitWithLoader>
+        <input type="submit">Se connecter</input>
       </form>
     );
   }
@@ -31,7 +24,7 @@ class LoginForm extends React.Component {
 
 export default compose(
   // withLoginServer decorator must be called BEFORE reduxForm
-  withLoginToServer,
+  // withLoginToWordpress,
   reduxForm({
     form: "login",
     initialValues: {
