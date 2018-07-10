@@ -1,7 +1,6 @@
 import React from "react";
 import { reduxForm, Field } from "redux-form";
-import { compose } from "react-apollo";
-import Text from "../ui/finalFormBulma/Text";
+import { compose } from "recompose";
 import withLoginToServer from "./withLoginToServer";
 import ButtonSubmitWithLoader from "../ui/bulma/ButtonSubmitWithLoader";
 
@@ -10,12 +9,7 @@ class LoginForm extends React.Component {
     const { handleSubmit, submitting } = this.props;
     return (
       <form onSubmit={handleSubmit}>
-        <Field
-          className="is-large"
-          label="Email"
-          name="email"
-          component={Text}
-        />
+        <Field className="is-large" label="Email" name="email" type="text" />
         <Field
           className="is-large"
           label="Mot de passe"
