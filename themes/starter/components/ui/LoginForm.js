@@ -8,15 +8,14 @@ class LoginForm extends React.Component {
     const { handleSubmit, submitting } = this.props;
     return (
       <form onSubmit={handleSubmit}>
-        <Field className="is-large" label="Email" name="email" type="text" />
+        <Field label="Email" name="email" component="input" type={"text"} />
         <Field
-          className="is-large"
           label="Mot de passe"
           name="password"
-          component={Text}
+          component="input"
           type="password"
         />
-        <input type="submit">Se connecter</input>
+        <button type="submit">Se connecter</button>
       </form>
     );
   }
