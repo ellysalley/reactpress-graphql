@@ -11,4 +11,4 @@ const config = {
   })
 };
 
-export const withNextApollo = withData(config);
+export default withData(config);

@@ -5,7 +5,7 @@ import { compose } from "recompose";
 import gql from "graphql-tag";
 import Loader from "../components/ui/Loader";
 import { graphql } from "react-apollo";
-import { withNextApollo } from "../../../lib/apollo";
+import withNextApollo from "../../../decorators/withNextApollo";
 
 class CategoryPage extends React.Component {
   render() {
