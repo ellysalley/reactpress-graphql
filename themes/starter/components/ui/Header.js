@@ -1,9 +1,6 @@
 import React from "react";
 
 const Header = class extends React.PureComponent {
-  shouldComponentUpdate(nextProps, nextState) {
-    return false;
-  }
   constructor(props) {
     super(props);
   }

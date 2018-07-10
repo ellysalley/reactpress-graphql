@@ -2,7 +2,7 @@ import React from "react";
 import Header from "../ui/Header";
 import Navigation from "../ui/Navigation";
 import Container from "../ui/Container";
-import config from "../../lib/publicConfig";
+import config from "../../../../lib/publicConfig";
 
 const Layout = class extends React.PureComponent {
   render() {

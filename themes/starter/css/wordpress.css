@@ -1,0 +1,27 @@
+img.alignleft,
+figure.alignleft {
+  float: left;
+  margin: 0rem 1rem 2rem 0rem;
+}
+
+img.alignright,
+figure.alignright {
+  float: right;
+  margin: 0rem 0rem 2rem 1rem;
+}
+
+img.aligncenter,
+figure.aligncenter {
+  margin: 2rem auto;
+  display: block;
+}
+
+figure.wp-caption img {
+  margin-bottom: 0;
+}
+
+figure.wp-caption figcaption {
+  font-style: italic;
+  color: #555;
+  padding: 1rem 0;
+}

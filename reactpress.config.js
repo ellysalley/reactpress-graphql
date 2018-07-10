@@ -1,5 +1,6 @@
 module.exports = {
   wordpressGraphqlEndpoint: "https://dev-reactpress.pantheonsite.io/graphql",
+  theme: "starter",
   siteInformations: {
     name: "REACTPRESS",
     slogan: "Start a SEO-friendly decoupled Wordpress with React in minutes"

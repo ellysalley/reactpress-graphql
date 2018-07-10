@@ -1,6 +1,5 @@
 import Link from "next/link";
 import PropTypes from "prop-types";
-import config from "../../lib/publicConfig";
 import "./Navigation.css";
 
 let Navigation = class extends React.PureComponent {
