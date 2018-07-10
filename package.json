@@ -19,6 +19,7 @@
     "graphql": "^0.13.2",
     "graphql-tag": "^2.9.2",
     "isomorphic-unfetch": "^2.0.0",
+    "jwt-decode": "^2.2.0",
     "moment": "^2.22.2",
     "next": "^6.1.1",
     "next-apollo": "^2.0.0",
