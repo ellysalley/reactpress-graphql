@@ -1,4 +1,4 @@
-# WORDPRESS + REACT = REACTPRESS 💛 - GrapqhQL version 🚀
+# WORDPRESS + REACT = REACTPRESS 💛 - GraphQL version 🚀
 
 _Wordpress developpers ?_ Add a SEO-friendly React front-end to your Wordpress in minutes.
 _React developpers ?_ Create a SEO-friendly App with a powerful backoffice for your contributors.
