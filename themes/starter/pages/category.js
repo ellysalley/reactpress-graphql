@@ -11,7 +11,6 @@ class CategoryPage extends React.Component {
   render() {
     const { data } = this.props;
     if (data.loading) return <Loader />;
-    console.log(data);
     return (
       <div>
         <h1>{data.categories.edges[0].node.name}</h1>
