@@ -3,7 +3,7 @@ import { HttpLink } from "apollo-link-http";
 import config from "../lib/publicConfig";
 
 // can also be a function that accepts a `context` object (SSR only) and returns a config
-const apolloConfig = {
+export const apolloClient = {
   link: new HttpLink({
     uri: config.wordpressGraphqlEndpoint, // Server URL (must be absolute)
     opts: {
@@ -12,4 +12,4 @@ const apolloConfig = {
   })
 };
 
-export default withData(apolloConfig);
+export default withData(apolloClient);

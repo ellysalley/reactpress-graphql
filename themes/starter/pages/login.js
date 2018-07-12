@@ -4,7 +4,9 @@ import LoginForm from "../components/ui/LoginForm";
 import { graphql } from "react-apollo";
 import gql from "graphql-tag";
 import { compose } from "recompose";
-import withNextApollo from "../../../decorators/withNextApollo";
+import withNextApollo, {
+  apolloClient
+} from "../../../decorators/withNextApollo";
 import { setToken } from "../../../lib/auth";
 
 /**
@@ -20,8 +22,9 @@ class LoginFormContainer extends React.Component {
     try {
       const result = await login({ variables: { password, username } });
       setToken(result.data.login.authToken);
-      // await apolloClient.resetStore();
-      //history.push("/");
+      console.log(this.props.router);
+      this.props.router.push("/account");
+      //await apolloClient.resetStore();
     } catch (error) {
       this.setState({
         errors: error.graphQLErrors
