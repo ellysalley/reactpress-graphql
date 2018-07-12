@@ -13,6 +13,7 @@
   "dependencies": {
     "@zeit/next-css": "^0.2.0",
     "apollo-boost": "^0.1.10",
+    "apollo-link-context": "^1.0.8",
     "axios": "^0.18.0",
     "css-loader": "^0.28.11",
     "express": "^4.16.3",
