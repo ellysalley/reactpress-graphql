@@ -1,10 +1,11 @@
 import React from "react";
-import { withRouter } from "react-router";
+import { withRouter } from "next/router";
+import withNextApollo from "../../../../decorators/withNextApollo";
 import { graphql } from "react-apollo";
 import gql from "graphql-tag";
-import { compose } from "react-apollo";
-import { setToken } from "../../lib/auth";
-import apolloClient from "../../lib/apolloClient";
+import { compose } from "recompose";
+import { setToken } from "../../../../lib/auth";
+//import apolloClient from "../../lib/apolloClient";
 
 /**
  * Logs user to Wordpress from the LoginForm user and password
@@ -15,8 +16,9 @@ export default function withLoginToWordpress(LoginForm) {
     state = {
       graphQLErrors: null
     };
-    handleSubmit = async ({ password, email }) => {
+    handleSubmit = async ({ password, username }) => {
       const { login, history } = this.props;
+      /*
       try {
         const result = await login({ variables: { password, email } });
         setToken(result.data.login.jwt);
@@ -27,6 +29,7 @@ export default function withLoginToWordpress(LoginForm) {
           errors: error.graphQLErrors
         });
       }
+      */
     };
 
     componentDidMount() {
@@ -38,27 +41,35 @@ export default function withLoginToWordpress(LoginForm) {
     }
 
     render() {
+      return null;
       return (
         <div>
+          {/*
           {this.state.errors && <LoginErrors errors={this.state.errors} />}
           <LoginForm onSubmit={this.handleSubmit} />
+          */}
         </div>
       );
     }
   }
 
   const query = gql`
-    mutation login($email: String!, $password: String!) {
-      login(email: $email, password: $password) {
-        jwt
-        user {
-          id
+    mutation logToWordpress($username: String!, $password: String!) {
+      login(
+        input: {
+          username: $username
+          password: $password
+          clientMutationId: "42"
         }
+      ) {
+        authToken
+        refreshToken
       }
     }
   `;
 
   return compose(
+    withNextApollo,
     withRouter,
     graphql(query, { name: "login" })
   )(LoginFormContainer);
