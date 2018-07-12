@@ -4,9 +4,7 @@ import LoginForm from "../components/ui/LoginForm";
 import { graphql } from "react-apollo";
 import gql from "graphql-tag";
 import { compose } from "recompose";
-import withNextApollo, {
-  apolloClient
-} from "../../../decorators/withNextApollo";
+import withNextApollo, { apolloClient } from "../../../lib/withNextApollo";
 import { setToken } from "../../../lib/auth";
 
 /**
