@@ -1,14 +1,15 @@
 import { withData } from "next-apollo";
 import { HttpLink } from "apollo-link-http";
+import config from "../lib/publicConfig";
 
 // can also be a function that accepts a `context` object (SSR only) and returns a config
-const config = {
+const apolloConfig = {
   link: new HttpLink({
-    uri: "https://dev-reactpress.pantheonsite.io/graphql", // Server URL (must be absolute)
+    uri: config.wordpressGraphqlEndpoint, // Server URL (must be absolute)
     opts: {
       credentials: "same-origin" // Additional fetch() options like `credentials` or `headers`
     }
   })
 };
 
-export default withData(config);
+export default withData(apolloConfig);

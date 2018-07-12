@@ -1,14 +1,15 @@
 import React from "react";
+import { withRouter } from "next/router";
 import { reduxForm, Field } from "redux-form";
 import { compose } from "recompose";
-// import withLoginToWordpress from "../../../../decorators/withLoginToWordpress";
+import withLoginToWordpress from "./withLoginToWordpress";
 
-class LoginForm extends React.Component {
+export class LoginForm extends React.Component {
   render() {
     const { handleSubmit, submitting } = this.props;
     return (
       <form onSubmit={handleSubmit}>
-        <Field label="Email" name="email" component="input" type={"text"} />
+        <Field label="Email" name="username" component="input" type={"text"} />
         <Field
           label="Mot de passe"
           name="password"
@@ -23,7 +24,7 @@ class LoginForm extends React.Component {
 
 export default compose(
   // withLoginServer decorator must be called BEFORE reduxForm
-  withLoginToWordpress,
+  // withLoginToWordpress,
   reduxForm({
     form: "login",
     initialValues: {
