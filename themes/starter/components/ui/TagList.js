@@ -1,3 +1,4 @@
+import React from "react";
 import TagListItem from "./TagListItem";
 
 const TagList = ({ tags }) => (

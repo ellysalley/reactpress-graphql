@@ -1,10 +1,9 @@
-import PostList from "../components/ui/PostList";
+import React from "react";
 import { graphql } from "react-apollo";
 import gql from "graphql-tag";
 import { compose } from "recompose";
 import Loader from "../components/ui/Loader";
 import withNextApollo from "../../../lib/withNextApollo";
-import React from "react";
 
 const AccountPage = ({ data }) => {
   if (data.loading) return <Loader />;

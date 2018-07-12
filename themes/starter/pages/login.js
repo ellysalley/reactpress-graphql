@@ -20,7 +20,6 @@ class LoginFormContainer extends React.Component {
     try {
       const result = await login({ variables: { password, username } });
       setToken(result.data.login.authToken);
-      console.log(this.props.router);
       this.props.router.push("/account");
       //await apolloClient.resetStore();
     } catch (error) {
@@ -29,14 +28,6 @@ class LoginFormContainer extends React.Component {
       });
     }
   };
-
-  componentDidMount() {
-    //this.timeout = setInterval(this.props.data.refetch, 1000);
-  }
-
-  componentWillUnmount() {
-    //clearInterval(this.timeout);
-  }
 
   render() {
     return (

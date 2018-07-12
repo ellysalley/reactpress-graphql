@@ -1,3 +1,4 @@
+import React from "react";
 import AuthorListItem from "./AuthorListItem";
 
 const AuthorList = ({ authors }) => (
