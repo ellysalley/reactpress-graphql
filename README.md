@@ -1,4 +1,4 @@
-# REACT + WORDPRESS = REACTPRESS ( GraphQL version 🚀 )
+# Next.js (React) + WORDPRESS = REACTPRESS ( GraphQL version 🚀 )
 
 Every website wants to appear in searches. Reactpress is a SEO-friendly React front-end for your Wordpress GraphQL API, built upon the awesome [Next.js](https://github.com/zeit/next.js/) for Server Side Rendering.
 
