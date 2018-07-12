@@ -1,5 +1,5 @@
 import React from "react";
-import LinkButton from "../ui/LinkButton";
+import LinkButton from "./LinkButton";
 import striptags from "striptags";
 
 const PostListItem = ({ post }) => (

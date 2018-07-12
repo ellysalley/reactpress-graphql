@@ -7,19 +7,40 @@ export class LoginForm extends React.Component {
   render() {
     const { handleSubmit, submitting } = this.props;
     return (
-      <form onSubmit={handleSubmit}>
-        <Field label="Email" name="username" component="input" type={"text"} />
-        <Field
-          label="Mot de passe"
-          name="password"
-          component="input"
-          type="password"
-        />
+      <form style={styles.form} onSubmit={handleSubmit}>
+      <div>Login with demo / demo</div>
+        <div style={styles.fieldWrapper}>
+          <Field
+            label="Email"
+            name="username"
+            component="input"
+            type={"text"}
+          />
+        </div>
+        <div style={styles.fieldWrapper}>
+          <Field
+            label="Mot de passe"
+            name="password"
+            component="input"
+            type="password"
+          />
+        </div>
+        <div style={styles.fieldWrapper}>
         <button type="submit">Se connecter</button>
+        </div>
       </form>
     );
   }
 }
+
+const styles = {
+  form: {
+    textAlign: "center"
+  },
+  fieldWrapper: {
+    padding: "1rem"
+  }
+};
 
 export default compose(
   reduxForm({
