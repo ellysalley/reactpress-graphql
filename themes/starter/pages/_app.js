@@ -13,6 +13,7 @@ import Layout from "../components/layouts/Layout";
 import "../css/typography.css";
 import "../css/globals.css";
 import "../css/nprogress.css";
+import "../css/wordpress.css";
 
 // display a loader a the top of our page
 Router.onRouteChangeStart = url => {
