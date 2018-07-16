@@ -1,9 +1,9 @@
-import React from "react"
+import React from "react";
 import PostList from "../components/ui/PostList";
 import { graphql } from "react-apollo";
 import gql from "graphql-tag";
 import Loader from "../components/ui/Loader";
-import withNextApollo from "../../../lib/withNextApollo";
+import withData from "../../../lib/withData";
 import { compose } from "recompose";
 
 const PostListPage = ({ data }) => {
@@ -28,6 +28,6 @@ const query = gql`
 `;
 
 export default compose(
-  withNextApollo,
+  withData,
   graphql(query)
 )(PostListPage);

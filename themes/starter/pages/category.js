@@ -5,7 +5,7 @@ import { compose } from "recompose";
 import gql from "graphql-tag";
 import Loader from "../components/ui/Loader";
 import { graphql } from "react-apollo";
-import withNextApollo from "../../../lib/withNextApollo";
+import withData from "../../../lib/withData";
 
 class CategoryPage extends React.Component {
   render() {
@@ -55,7 +55,7 @@ const queryOptions = {
 };
 
 export default compose(
-  withNextApollo,
+  withData,
   withRouter,
   graphql(query, queryOptions)
 )(CategoryPage);
