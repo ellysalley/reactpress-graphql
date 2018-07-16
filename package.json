@@ -1,6 +1,6 @@
 {
   "name": "reactpress-graphql",
-  "version": "0.9.0",
+  "version": "0.10.0",
   "description": "Reactpress is a starter for wordpress + react , using Next.js and wp-graphql",
   "main": "index.js",
   "scripts": {
